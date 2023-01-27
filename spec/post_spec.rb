@@ -26,4 +26,24 @@ RSpec.describe Post, type: :model do
     comments = @post.recent_comments
     expect(comments).to eq []
   end
+
+  it 'commentsCounter should allow valid values' do
+    @post.CommentsCounter = 20
+    expect(@post).to_not be_valid
+  end
+
+  it 'is not valid if comments_counter is less than 0' do
+    post = Post.new(CommentsCounter: -1)
+    expect(post).to_not be_valid
+  end
+
+  it 'is not valid if likes_counter is less than 0' do
+    post = Post.new(LikesCounter: -1)
+    expect(post).to_not be_valid
+  end
+
+  it 'likescounter should be present' do
+    @post.LikesCounter = nil
+    expect(@post).to_not be_valid
+  end
 end
