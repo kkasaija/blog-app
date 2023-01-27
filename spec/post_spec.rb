@@ -2,21 +2,28 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
   first_user = User.create(Name: 'Tom', Photo: 'https://unsplash.com/photos/F_-0BxGuVvo', Bio: 'Teacher from Mexico.')
-  subject { Post.new(AuthorId: first_user.id, Title: 'Hello', Text: 'This is my first post') }
-  before { subject.save }
+  
+  before(:each) do
+    @post = Post.create(AuthorId: first_user.id, Title: 'Hello', Text: 'This is my first post')
+  end
 
   it 'title length should not be too long' do
-    subject.Title = 'a' * 300
-    expect(subject).to_not be_valid
+    @post.Title = 'a' * 300
+    expect(@post).to_not be_valid
   end
 
   it 'author_id should be present' do
-    subject.AuthorId = nil
-    expect(subject).to_not be_valid
+    @post.AuthorId = nil
+    expect(@post).to_not be_valid
   end
 
   it 'comments counter should be integer' do
-    subject.CommentsCounter = 'String'
-    expect(subject).to_not be_valid
+    @post.CommentsCounter = 'String'
+    expect(@post).to_not be_valid
+  end
+
+  it 'most_recent_comments should return zero' do
+    comments = @post.recent_comments
+    expect(comments).to eq []
   end
 end
