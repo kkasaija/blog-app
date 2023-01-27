@@ -56,6 +56,8 @@
 - **Comment resource**
 - **Post resource**
 - **Like resource**
+- **Model validations**
+- **Rspec tests**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
