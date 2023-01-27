@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
     @new_user.PostsCounter = 20
     expect(@new_user).to be_valid
   end
-  
+
   it 'Name should be present' do
     @new_user.Name = nil
     expect(@new_user).to_not be_valid
