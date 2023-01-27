@@ -27,6 +27,11 @@ RSpec.describe Post, type: :model do
     expect(comments).to eq []
   end
 
+  it 'most_recent_posts should return 1' do
+    post = first_user.recent_posts
+    expect(post).to eq []
+  end
+
   it 'commentsCounter should allow valid values' do
     @post.CommentsCounter = 20
     expect(@post).to_not be_valid
