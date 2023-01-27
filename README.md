@@ -56,6 +56,8 @@
 - **Comment resource**
 - **Post resource**
 - **Like resource**
+- **Model validations**
+- **Rspec tests**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -129,7 +131,7 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> -[ ] **[ processing data in models ]**
+> -[ ] **[ to be communicated ]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
