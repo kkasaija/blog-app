@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   validates :PostsCounter, numericality: {
     greater_than_or_equal_to: 0,
-    only_integer: true 
+    only_integer: true
   }
 
   def recent_posts
