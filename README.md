@@ -106,6 +106,7 @@ Clone this repository to your desired folder:
 
 > run the `rails server` command in terminal
 > run `http://localhost:3000` in the browser url
+> update config/database.yml with your local DataBase credentials
 
 
 ### Run tests
@@ -131,7 +132,7 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> -[ ] **[ to be communicated ]**
+> -[ ] **[ controller specs ]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
