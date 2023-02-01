@@ -21,8 +21,11 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 [ Blog app ] <a name="about-project"></a>
-**[blog app ]** A blogging platform that allows you to create, manage, and publish content on the internet in the form of a blog.
+# 📖 [ Blog app ] <a name="about-project"></a>![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white) ![Rails](https://img.shields.io/badge/rails-%23CC0000.svg?style=for-the-badge&logo=ruby-on-rails&logoColor=white)
+**[blog app ]** A sample blogging platform that allows you to create, manage, and publish content on the internet in the form of a blog.
+
+ERDiagram:
+![blog_app_diagram](./app/assets/images/blog_erd.png)
 
 ## 🛠 Built With <a name="built-with"></a>
 - Ruby on rails
@@ -72,6 +75,7 @@
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
+- A web browser e.g Chrome.
 - Text Editor (VScode, Atom, Sublime text, etc)
 - Basic knowledge of ruby
 - Basic knowledge of RoR
