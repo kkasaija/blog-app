@@ -4,7 +4,7 @@ RSpec.describe 'Posts', type: :request do
   it 'should return a correct response' do
     get '/users/:id/posts'
     expect(response).to have_http_status(:ok)
-     expect(response).to render_template(:index)
+    expect(response).to render_template(:index)
     expect(response.body).to include("List of user's posts here")
   end
 
