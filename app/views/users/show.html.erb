@@ -2,33 +2,33 @@
 
   <div class='one_user'>
     <div class='profile'>
-      <img src='<%= @user.photo %>' alt='<%= @user.name %> thumbnail' />
+      <img src=<%= @user.Photo %> alt="<%=@user.Name%>'s image" />
     </div>
     <div class='user_info'>
-      <h3 class='user_name'><%= @user.name %></h3>
+      <h4 class='user_name'><%= @user.Name %></h4>
       <p class='num_posts'>Number of Posts: <%= @user.posts.count %></p>
     </div>
   </div>
 
   <div class='user_bio'>
     <h4>Bio</h4>
-    <h5><%= @user.bio %></h5>
+    <h4><%= @user.Bio %></h4>
   </div>
 
   <div class='user_posts'>
     <% @user.posts.each do |post| %>
       <div class='posts_list'>
-        <h4><%= link_to post.title, user_post_path(@user, post) %></h4>
-        <p><%= post.text %></p>
+        <h4><%= link_to post.Title, user_post_path(@user, post) %></h4>
+        <p><%= post.Text %></p>
         <span class='like_comment'>
-          Comments: <%= post.comments_counter || 0 %>,
-          Likes: <%= post.likes_counter || 0 %>
+          Comments: <%= post.CommentsCounter || 0 %>,
+          Likes: <%= post.LikesCounter || 0 %>
         </span>
       </div>
     <% end %>
   </div>
 
-  <button class='list_btn'>
+  <button class='list_button'>
       <%= link_to 'See all posts', user_posts_path(@user) %>
   </button>
 </section>
