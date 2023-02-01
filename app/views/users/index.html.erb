@@ -1,2 +1,14 @@
-<h1> Home Page </h1>
-<p> List of all users </p>
+<section>
+  <ul class="list_users">
+  <% @users.each do |user| %>
+    <li class="one_user">
+      <div class="profile">
+        <img src="<%= user.Photo %>" alt="<%=user.Name %> thumbnail" />
+      </div>
+      <div class="user_info">
+        <h3 class="user_name"><%= link_to user.Name, user_path(user) %></h3>
+        <p class="postNumber">Number of Posts: <%= user.PostsCounter || 0 %></p>
+      </div>
+    </li>
+    <% end %>
+  </ul>
