@@ -62,8 +62,8 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Live Demo <a name="live-demo"></a>
-- [Live Demo Link]()
+<!-- ## 🚀 Live Demo <a name="live-demo"></a>
+- [Live Demo Link]() -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -164,6 +164,6 @@ I would like to thank...
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Kasaija-Kenneth/blog-app/blob/dev/LICENSE) licensed.
+This project is [MIT](https://github.com/Kasaija-Kenneth/blog-app/blob/controller_specs/MIT.md) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
