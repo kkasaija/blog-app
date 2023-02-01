@@ -1,11 +1,11 @@
 <section>
-  <div class= "one_user">
-    <div class="profile">
-      <img src='<%= @user.photo %>' alt='<%= @user.name %> thumbnail' />
+  <div class= "user">
+    <div class="user_profile">
+      <img src='<%= @user.Photo %>' alt='<%= @user.Name %> thumbnail' />
     </div>
     <div class="user_info">
-      <h1 class="user-head"><%= @user.name %></h1>
-      <p class="user-para">Number of posts: <%= @user.posts_counter || 0 %></p>
+      <h1 class="user_name"><%= @user.Name %></h1>
+      <p class="user_activity">Number of Posts: <%= @user.PostsCounter || 0 %></p>
     </div>
   </div>
 
@@ -14,11 +14,11 @@
       <div class="posts_list">
         <h2>Post # <%= post.id %></h2>
         <% end %>
-        <h1 class="user-head"><%= post.title %></h1>
-        <p>post description: <span><%= post.text%></span> </p>
-        <p class="user-para">Number of comments: <%= post.comments_counter || 0 %></p>
-        <p class="user-para">Number of likes: <%= post.likes_counter || 0 %></p> 
+        <h1 class="user_title"><%= post.Title %></h1>
+        <p>Post Description: <span><%= post.Text%></span> </p>
+        <p class="user_activity">Number of Comments: <%= post.CommentsCounter || 0 %></p>
+        <p class="user_activity">Number of Likes: <%= post.LikesCounter || 0 %></p> 
       </div>
-    <% end %>
-  <button class="list_btn">pagination</button>
+    <% end
+  <button class="bottom_button">Pagination</button> %>
 </section>
