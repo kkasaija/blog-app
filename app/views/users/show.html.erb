@@ -21,8 +21,8 @@
         <h4><%= link_to post.Title, user_post_path(@user, post) %></h4>
         <p><%= post.Text %></p>
         <span class='like_comment'>
-          Comments: <%= post.CommentsCounter || 0 %>,
-          Likes: <%= post.LikesCounter || 0 %>
+          Comments: <%= post.CommentsCounter %>,
+          Likes: <%= post.LikesCounter %>
         </span>
       </div>
     <% end %>
