@@ -1,2 +1,34 @@
-<h1>User details page </h2>
-<p>Details of the user which includes both Bio and Posts </h2>
+<section>
+
+  <div class='one_user'>
+    <div class='profile'>
+      <img src='<%= @user.photo %>' alt='<%= @user.name %> thumbnail' />
+    </div>
+    <div class='user_info'>
+      <h3 class='user_name'><%= @user.name %></h3>
+      <p class='num_posts'>Number of Posts: <%= @user.posts.count %></p>
+    </div>
+  </div>
+
+  <div class='user_bio'>
+    <h4>Bio</h4>
+    <h5><%= @user.bio %></h5>
+  </div>
+
+  <div class='user_posts'>
+    <% @user.posts.each do |post| %>
+      <div class='posts_list'>
+        <h4><%= link_to post.title, user_post_path(@user, post) %></h4>
+        <p><%= post.text %></p>
+        <span class='like_comment'>
+          Comments: <%= post.comments_counter || 0 %>,
+          Likes: <%= post.likes_counter || 0 %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+
+  <button class='list_btn'>
+      <%= link_to 'See all posts', user_posts_path(@user) %>
+  </button>
+</section>

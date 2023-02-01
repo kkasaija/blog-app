@@ -1,2 +1,22 @@
-<h1> User posts page </h1>
-<p> Details of a specific post of a user
+<section>
+  <div class='list_posts'>
+    <h2>Post # <%= @post.id %> by <%= @post.users.name %></h2>
+    <span class='like_comment'>
+      Comments: <%= @post.comments_counter %>, 
+      Likes: <%= @post.likes_counter %>
+    </span>
+    <p><%= @post.text %></p>
+  </div>
+
+  <ul class='post_comment'>
+    <% if @post.comments_counter == 0 %>
+      <p>No comment added!</p>
+    <% else %>
+      <% @post.id do |comment| %>
+        <li>
+          <%= comment.users.name %>: <%= comment.text %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</section>

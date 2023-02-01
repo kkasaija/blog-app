@@ -1,2 +1,24 @@
-<h1>Posts page </h1>
-<p> List of user's posts here </p>
+<section>
+  <div class= "one_user">
+    <div class="profile">
+      <img src='<%= @user.photo %>' alt='<%= @user.name %> thumbnail' />
+    </div>
+    <div class="user_info">
+      <h1 class="user-head"><%= @user.name %></h1>
+      <p class="user-para">Number of posts: <%= @user.posts_counter || 0 %></p>
+    </div>
+  </div>
+
+  <% @user.recent_posts.each do |post| %>
+    <%= link_to user_post_path(@user, post) do %>
+      <div class="posts_list">
+        <h2>Post # <%= post.id %></h2>
+        <% end %>
+        <h1 class="user-head"><%= post.title %></h1>
+        <p>post description: <span><%= post.text%></span> </p>
+        <p class="user-para">Number of comments: <%= post.comments_counter || 0 %></p>
+        <p class="user-para">Number of likes: <%= post.likes_counter || 0 %></p> 
+      </div>
+    <% end %>
+  <button class="list_btn">pagination</button>
+</section>
