@@ -15,4 +15,3 @@ RSpec.describe 'Users', type: :request do
     expect(response.body).to include('Details of the user which includes both Bio and Posts')
   end
 end
-
