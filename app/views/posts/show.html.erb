@@ -1,20 +1,20 @@
 <section>
-  <div class='list_posts'>
-    <h2>Post # <%= @post.id %> by <%= @post.users.name %></h2>
-    <span class='like_comment'>
-      Comments: <%= @post.comments_counter %>, 
-      Likes: <%= @post.likes_counter %>
+  <div class='posts'>
+    <h2>Post # <%= @post.id %> by <%= @post.users.Name %></h2>
+    <span class='comment_like'>
+      Comments: <%= @post.CommentsCounter %>, 
+      Likes: <%= @post.LikesCounter %>
     </span>
-    <p><%= @post.text %></p>
+    <p><%= @post.Text %></p>
   </div>
 
   <ul class='post_comment'>
-    <% if @post.comments_counter == 0 %>
-      <p>No comment added!</p>
+    <% if @post.CommentsCounter == 0 %>
+      <p>No comment added</p>
     <% else %>
       <% @post.id do |comment| %>
         <li>
-          <%= comment.users.name %>: <%= comment.text %>
+          <%= comment.users.Name %>: <%= comment.Text %>
         </li>
       <% end %>
     <% end %>
