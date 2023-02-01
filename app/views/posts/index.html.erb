@@ -12,11 +12,17 @@
   <% @user.recent_posts.each do |post| %>
     <div class="posts_list">
       <h3>Post # <%= post.id %></h3>
-      <span class="user_title">Post title:</span>
-      <span><%= post.Title %></span>
+      <div class="post_headline">
+        <h3 class="user_title">Post title:</h3>
+        <h4><%= post.Title %></h4>
+      </div>
       <p>Post description: <span><%= post.Text %></span> </p>
-      <p class="user_activity">Number of comments: <%= post.CommentsCounter %></p>
-      <p class="user_activity">Number of likes: <%= post.LikesCounter %></p> 
+      <div class="postings">
+        <span class="user_activity">Number of comments: <%= post.CommentsCounter %></span>
+        <span class="user_activity">Number of likes: <%= post.LikesCounter %></span>
+      </div>
+      <div>
+      </div>
     </div>
   <% end %>
   <button class="bottom_button">Pagination</button>
