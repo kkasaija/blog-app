@@ -7,7 +7,7 @@
       </div>
       <div class="user_info">
         <h4 class="user_name"><%= link_to user.Name, user_path(user) %></h4>
-        <p class="postNumber">Number of Posts: <%= user.PostsCounter || 0 %></p>
+        <p class="postNumber">Number of Posts: <%= user.PostsCounter %></p>
       </div>
     </li>
     <% end %>
