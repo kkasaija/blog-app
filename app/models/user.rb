@@ -15,6 +15,6 @@ class User < ApplicationRecord
   end
 
   def set_defaults
-    self.PostsCounter ||= 0 if self.has_attribute? :PostsCounter
+    self.PostsCounter ||= 0 if has_attribute? :PostsCounter
   end
 end

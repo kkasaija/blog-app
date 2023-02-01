@@ -1,13 +1,13 @@
 <section>
   <ul class="list_users">
   <% @users.each do |user| %>
-    <li class="one_user">
-      <div class="profile">
+    <li class="user">
+      <div class="user_profile">
         <img src=<%=user.Photo%> alt="<%=user.Name%>'s image" />
       </div>
       <div class="user_info">
         <h4 class="user_name"><%= link_to user.Name, user_path(user) %></h4>
-        <p class="postNumber">Number of Posts: <%= user.PostsCounter %></p>
+        <p class="user_activity">Number of posts: <%= user.PostsCounter %></p>
       </div>
     </li>
     <% end %>

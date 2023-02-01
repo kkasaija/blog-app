@@ -27,7 +27,7 @@ class Post < ApplicationRecord
   end
 
   def set_defaults
-    self.LikesCounter ||= 0 if self.has_attribute? :LikesCounter
-    self.CommentsCounter ||= 0 if self.has_attribute? :CommentsCounter
+    self.LikesCounter ||= 0 if has_attribute? :LikesCounter
+    self.CommentsCounter ||= 0 if has_attribute? :CommentsCounter
   end
 end

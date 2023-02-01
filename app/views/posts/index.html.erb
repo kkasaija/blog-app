@@ -5,20 +5,19 @@
     </div>
     <div class="user_info">
       <h1 class="user_name"><%= @user.Name %></h1>
-      <p class="user_activity">Number of Posts: <%= @user.PostsCounter %></p>
+      <p class="user_activity">Number of posts: <%= @user.PostsCounter %></p>
     </div>
   </div>
 
   <% @user.recent_posts.each do |post| %>
-    <%= link_to user_post_path(@user, post) do %>
-      <div class="posts_list">
-        <h2>Post # <%= post.id %></h2>
-        <% end %>
-        <h1 class="user_title"><%= post.Title %></h1>
-        <p>Post Description: <span><%= post.Text %></span> </p>
-        <p class="user_activity">Number of Comments: <%= post.CommentsCounter %></p>
-        <p class="user_activity">Number of Likes: <%= post.LikesCounter %></p> 
-      </div>
-    <% end %>
+    <div class="posts_list">
+      <h3>Post # <%= post.id %></h3>
+      <span class="user_title">Post title:</span>
+      <span><%= post.Title %></span>
+      <p>Post description: <span><%= post.Text %></span> </p>
+      <p class="user_activity">Number of comments: <%= post.CommentsCounter %></p>
+      <p class="user_activity">Number of likes: <%= post.LikesCounter %></p> 
+    </div>
+  <% end %>
   <button class="bottom_button">Pagination</button>
 </section>
