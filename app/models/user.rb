@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :comments, foreign_key: 'author_id'
-  has_many :posts, foreign_key: 'author_id'
-  has_many :likes, foreign_key: 'author_id'
+  has_many :comments, foreign_key: 'author_id', dependent: :destroy
+  has_many :posts, foreign_key: 'author_id', dependent: :destroy
+  has_many :likes, foreign_key: 'author_id', dependent: :destroy
 
   validates :Name, presence: true
   after_initialize :set_defaults
@@ -16,6 +16,5 @@ class User < ApplicationRecord
 
   def set_defaults
     self.PostsCounter ||= 0 if self.has_attribute? :PostsCounter
-    self.number ||= 0.0 if self.has_attribute? :number
   end
 end
