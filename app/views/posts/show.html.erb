@@ -14,11 +14,9 @@
     <% if @post.CommentsCounter == 0 %>
       <p>No comment added</p>
     <% else %>
-      <% @post.id do |comment| %>
-        <li>
-          <%= comment.users.Name %>: <%= comment.Text %>
-        </li>
-      <% end %>
+      <% @post.recent_comments.each do |comment| %>
+          <li><%@post.user.Name %>: <%= comment.Text%></li>
+        <% end %>
     <% end %>
   </ul>
 </section>

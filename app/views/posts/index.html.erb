@@ -24,6 +24,15 @@
       <div>
       </div>
     </div>
+    <ul class='post_comment'>
+      <% if post.CommentsCounter == 0 %>
+        <p>No comment added</p>
+      <% else %>
+        <% post.recent_comments.each do |comment| %>
+          <li><%comment.user.Name %>: <%= comment.Text%></li>
+        <% end %>
+      <% end %>
+    </ul>
   <% end %>
   <button class="bottom_button">Pagination</button>
 </section>
