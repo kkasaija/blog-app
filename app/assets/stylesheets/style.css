@@ -73,6 +73,10 @@ img {
 
 .post_headline {
   display: flex;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: center;
+  margin: 0 20px;
 }
 
 .like_comment {
@@ -96,9 +100,8 @@ img {
 
 .post_comment {
   list-style: none;
-  border: 2px solid black;
-  margin-top: 20px;
-  padding: 10px;
+  border: 1px solid black;
+  padding: 0.1% 20px;
 }
 
 .list_button {
