@@ -15,7 +15,7 @@
       <p>No comment added</p>
     <% else %>
       <% @post.recent_comments.each do |comment| %>
-          <li><%@post.user.Name %>: <%= comment.Text%></li>
+          <li><%=comment.user.Name %>: <%= comment.Text%></li>
         <% end %>
     <% end %>
   </ul>
