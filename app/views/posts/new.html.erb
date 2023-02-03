@@ -1,0 +1,12 @@
+<%= form_with model: @post, url: user_posts_path, method: :post, local: true, scope: :new_post do |form| %>
+    <div>
+      <%= form.label :Title %><br>
+      <%= form.text_field :Title %>
+    </div>
+  
+    <div>
+      <%= form.label :Text %><br>
+      <%= form.text_area :Text %>
+    </div>
+    <%= form.submit "Add new post"%>
+<% end %>

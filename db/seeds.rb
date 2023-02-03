@@ -26,12 +26,6 @@ end
   )
 end
 
-# Comment.create!(
-#   post: first_post,
-#   user: first_user,
-#   Text: 'Hi Tom!'
-# )
-
 10.times do |comment|
   Comment.create!(
     post: @user1_post,
