@@ -1,38 +1,42 @@
-<section>
-  <div class= "user">
+<div class="container">
+  <div>
     <div class="user_profile">
       <img src="<%= @user.Photo %>" alt="<%= @user.Name %>'s image" />
     </div>
-    <div class="user_info">
-      <h1 class="user_name"><%= @user.Name %></h1>
-      <p class="user_activity">Number of posts: <%= @user.PostsCounter %></p>
+    <div class="user_details">
+      <h3><%= @user.Name %></h3>
+      <p>Number of posts: <%= @user.PostsCounter %> </p>
     </div>
   </div>
 
-  <% @user.recent_posts.each do |post| %>
-    <div class="posts_list">
-      <h3>Post # <%= post.id %></h3>
-      <div class="post_headline">
-        <h3 class="user_title">Post title:</h3>
-        <h4><%= post.Title %></h4>
+  <% @posts.each do |post| %>
+    <div class="posts_container">
+      <div class="users_post">
+        <h2>
+          <%=
+            link_to "Post title: #{post.Title}",
+            user_post_path(@user.id, post.id),
+            class: "link_button"
+          %>
+        </h2>
+        <p><%= post.Text %></p>
+        <h4>
+          Comments:<%=post.CommentsCounter %>, Likes: <%= post.LikesCounter%>
+        </h4>
+        <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes" do |form| %>
+          <%= form.submit "Like Post" %>
+        <% end %>
       </div>
-      <p>Post description: <span><%= post.Text %></span> </p>
-      <div class="postings">
-        <span class="user_activity">Number of comments: <%= post.CommentsCounter %></span>
-        <span class="user_activity">Number of likes: <%= post.LikesCounter %></span>
-      </div>
-      <div>
+      <div class="comments_content">
+        <% if post.recent_comments.count.zero? %>
+          <p>No comments for this post </p>
+          <% else %>
+            <% post.recent_comments.each do |comment| %>
+            <p><%= comment.user.Name %>: <%= comment.Text %></p>
+          <% end %>
+        <% end %>
       </div>
     </div>
-    <ul class='post_comment'>
-      <% if post.CommentsCounter == 0 %>
-        <p>No comment added</p>
-      <% else %>
-        <% post.recent_comments.each do |comment| %>
-          <li><%=comment.user.Name %>: <%= comment.Text%></li>
-        <% end %>
-      <% end %>
-    </ul>
   <% end %>
-  <button class="bottom_button">Pagination</button>
-</section>
+  <button class="pagination">Pagination</button>
+</div>
