@@ -60,6 +60,9 @@ ERDiagram:
 - **Post resource**
 - **Like resource**
 - **Model validations**
+- **Ability to add comments from the browser**
+- **Ability to add posts from the browser**
+- **Add likes to posts functionality**
 - **Rspec tests**
 
 
@@ -136,7 +139,7 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> -[ ] **[ views ]**
+> -[ ] **[ To be communicated ]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
