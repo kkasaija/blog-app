@@ -1,24 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  first_user = User.create(Name: 'Tom', Photo: 'https://unsplash.com/photos/F_-0BxGuVvo', Bio: 'Teacher from Mexico.')
+  first_user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
 
   before(:each) do
-    @post = Post.create(AuthorId: first_user.id, Title: 'Hello', Text: 'This is my first post')
+    @post = Post.create(user: first_user, title: 'Hello', text: 'This is my first post')
   end
 
   it 'title length should not be too long' do
-    @post.Title = 'a' * 300
+    @post.title = 'a' * 300
     expect(@post).to_not be_valid
   end
 
   it 'author_id should be present' do
-    @post.AuthorId = nil
+    @post.author_id = nil
     expect(@post).to_not be_valid
   end
 
   it 'comments counter should be integer' do
-    @post.CommentsCounter = 'String'
+    @post.comments_counter = 'String'
     expect(@post).to_not be_valid
   end
 
@@ -33,22 +33,22 @@ RSpec.describe Post, type: :model do
   end
 
   it 'commentsCounter should allow valid values' do
-    @post.CommentsCounter = 20
+    @post.comments_counter = 20
     expect(@post).to_not be_valid
   end
 
   it 'is not valid if comments_counter is less than 0' do
-    post = Post.new(CommentsCounter: -1)
+    post = Post.new(comments_counter: -1)
     expect(post).to_not be_valid
   end
 
   it 'is not valid if likes_counter is less than 0' do
-    post = Post.new(LikesCounter: -1)
+    post = Post.new(likes_counter: -1)
     expect(post).to_not be_valid
   end
 
   it 'likescounter should be present' do
-    @post.LikesCounter = nil
+    @post.likes_counter = nil
     expect(@post).to_not be_valid
   end
 end

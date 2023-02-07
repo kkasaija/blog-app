@@ -11,11 +11,11 @@
   </div>
 
   <ul class='post_comment'>
-    <% if @post.CommentsCounter == 0 %>
+    <% if @post.comments_counter == 0 %>
       <p>No comment added</p>
     <% else %>
       <% @post.recent_comments.each do |comment| %>
-          <li><%=comment.user.Name %>: <%= comment.Text%></li>
+          <li><%=comment.user.name %>: <%= comment.text%></li>
         <% end %>
     <% end %>
   </ul>

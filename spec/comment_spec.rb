@@ -1,18 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  user = User.create(Name: 'Tom', Photo: 'https://unsplash.com/photos/F_-0BxGuVvo', Bio: 'Teacher from Mexico.')
-  post = Post.create(AuthorId: user.id, Title: 'Hello', Text: 'This is my first post')
-  subject { Comment.create(PostId: post.id, AuthorId: user.id, Text: 'Hi Tom!') }
+  user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+  post = Post.create(author_id: user.id, title: 'Hello', text: 'This is my first post')
+  subject { Comment.create(post_id: post.id, author_id: user.id, text: 'Hi Tom!') }
   before { subject.save }
 
   it 'postId should be present' do
-    subject.PostId = nil
+    subject.post_id = nil
     expect(subject).to_not be_valid
   end
 
   it 'author_id should be present' do
-    subject.AuthorId = nil
+    subject.author_id = nil
     expect(subject).to_not be_valid
   end
 end

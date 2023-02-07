@@ -20,11 +20,11 @@
       <div class='posts_list'>
       <h3>Post# <%= post.id %></h3>
       <span class="post_title">Post title:</span>
-        <span><%=post.Title%></span>
-        <p><%= post.Text %></p>
+        <span><%=post.title%></span>
+        <p><%= post.text %></p>
         <span class='like_comment'>
-          Comments: <%= post.CommentsCounter %>,
-          Likes: <%= post.LikesCounter %>
+          Comments: <%= post.comments_counter %>,
+          Likes: <%= post.likes_counter %>
         </span>
       </div>
     <% end %>

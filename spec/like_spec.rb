@@ -1,20 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Like, type: :model do
-  user = User.create(Name: 'Tom', Photo: 'https://unsplash.com/photos/F_-0BxGuVvo', Bio: 'Teacher from Mexico.')
-  post = Post.create(AuthorId: user.id, Title: 'Hello', Text: 'This is my first post')
+  user = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.')
+  post = Post.create(author_id: user.id, title: 'Hello', text: 'This is my first post')
 
   before(:each) do
-    @like = Like.create(AuthorId: user.id, PostId: post.id)
+    @like = Like.create(author_id: user.id, podt_id: post.id)
   end
 
   it 'post_id should be present' do
-    @like.PostId = nil
+    @like.post_id = nil
     expect(@like).to_not be_valid
   end
 
   it 'author_id should be present' do
-    @like.AuthorId = nil
+    @like.author_id = nil
     expect(@like).to_not be_valid
   end
 end

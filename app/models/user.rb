@@ -3,9 +3,9 @@ class User < ApplicationRecord
   has_many :posts, foreign_key: 'author_id', dependent: :destroy
   has_many :likes, foreign_key: 'author_id', dependent: :destroy
 
-  validates :Name, presence: true
+  validates :name, presence: true
   after_initialize :set_defaults
-  validates :PostsCounter, numericality: {
+  validates :posts_counter, numericality: {
     greater_than_or_equal_to: 0,
     only_integer: true
   }
@@ -15,6 +15,6 @@ class User < ApplicationRecord
   end
 
   def set_defaults
-    self.PostsCounter ||= 0 if has_attribute? :PostsCounter
+    self.posts_counter ||= 0 if has_attribute? :posts_counter
   end
 end
