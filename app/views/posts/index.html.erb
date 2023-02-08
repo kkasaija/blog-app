@@ -31,7 +31,7 @@
         <% if post.recent_comments.count.zero? %>
           <p>No comments for this post </p>
           <% else %>
-            <% post.recent_comments.each do |comment| %>
+            <% post.comments.last(5).each do |comment| %>
             <p><%= comment.user.name %>: <%= comment.text %></p>
           <% end %>
         <% end %>
