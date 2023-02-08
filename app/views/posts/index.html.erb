@@ -1,11 +1,11 @@
 <div class="container">
   <div>
     <div class="user_profile">
-      <img src="<%= @user.Photo %>" alt="<%= @user.Name %>'s image" />
+      <img src="<%= @user.photo %>" alt="<%= @user.name %>'s image" />
     </div>
     <div class="user_details">
-      <h3><%= @user.Name %></h3>
-      <p>Number of posts: <%= @user.PostsCounter %> </p>
+      <h3><%= @user.name %></h3>
+      <p>Number of posts: <%= @user.posts_counter %> </p>
     </div>
   </div>
 
@@ -19,7 +19,7 @@
             class: "link_button"
           %>
         </h2>
-        <p><%= post.Text %></p>
+        <p><%= post.text %></p>
         <h4>
           Comments:<%=post.comments_counter %>, Likes: <%= post.likes_counter%>
         </h4>
