@@ -135,6 +135,12 @@ You can deploy this project using:
   - Twitter: [@kenn_ug](https://twitter.com/kenn_ug)
   - Email:  <a href="mailto:kasaijak@gmail.com?subject=The%20subject%20of%20the%20mail">Send me a message:</a>
 
+  👤 **Kasaija Kenneth**
+
+  - GitHub: [@Recillah-Khamala](https://github.com/Recillah-Khamala)
+  - Twitter: [@recillahk](https://twitter.com/recillahk)
+  - LinkedIn: [LinkedIn](https://www.linkedin.com/in/recillah-khamala/) 
+  
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
