@@ -23,7 +23,7 @@ RSpec.describe 'Posts', type: :feature do
   let(:commenter) do
     User.create(
       name: 'Lilly',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo', 
+      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
       bio: 'Teacher from Poland.',
       posts_counter: 0
     )

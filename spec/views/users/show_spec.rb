@@ -15,7 +15,7 @@ RSpec.describe 'Users', type: :system do
     )
 
     Post.create(
-      user: @user, 
+      user: @user,
       title: 'Post 1 by Lilly',
       text: 'This is the third post test by Lilly',
       likes_counter: 0,
