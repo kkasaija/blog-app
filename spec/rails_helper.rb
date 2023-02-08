@@ -2,8 +2,8 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 abort('The Rails environment is running in production mode!') if Rails.env.production?
-require 'spec_helper'
 require 'rspec/rails'
+require 'spec_helper'
 require "capybara/rspec"
 # Dir[Rails.root.join('spec', 'support', '**', '*.rb')].sort.each { |f| require f }
 begin
@@ -32,7 +32,7 @@ Capybara.register_driver :selenium_chrome do |app|
  end
  
  Capybara.javascript_driver = :selenium_chrome
- RSpec.configure do |config|
+  RSpec.configure do |config|
    # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
    config.fixture_path = "#{::Rails.root}/spec/fixtures"
    config.use_transactional_fixtures = false
@@ -60,3 +60,4 @@ Capybara.register_driver :selenium_chrome do |app|
    config.after(:each) do
      DatabaseCleaner.clean
    end
+  end
