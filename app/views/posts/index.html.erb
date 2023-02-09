@@ -8,26 +8,18 @@
       <p>Number of posts: <%= @user.posts_counter %> </p>
     </div>
   </div>
-
   <% @posts.each do |post| %>
     <div class="posts_container">
       <div class="users_post">
-        
           <%=link_to "show post#{@user.id}",user_post_path(@user, post),
             class: "text-decoration-none" %>
-         
-        
         <p><%= post.text %></p>
         <h4>
-                        
-
         <% if post.comments_counter > 0%>
                   Comments:<%=post.comments_counter %>
-
         <%else%>
                  <p> Comments:0</p>
-<%end%>
-
+        <%end%>
           , Likes: <%= post.likes_counter%>
         </h4>
         <%= form_with url: "/users/#{post.author_id}/posts/#{post.id}/likes" do |form| %>
