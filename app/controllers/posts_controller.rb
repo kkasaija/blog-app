@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @user = User.find(params[:author_id])
-    @posts = Post.where(author_id: @user)
+    @user = User.find(params[:user_id])
+    @posts = @user.posts
   end
 
   def new
@@ -13,9 +13,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_parameters)
-    @post.user = current_user
-    @post.author_id = current_user.id
-
     if @post.save
       redirect_to user_posts_path(current_user)
     else
@@ -30,6 +27,6 @@ class PostsController < ApplicationController
   private
 
   def post_parameters
-    params.require(:new_post).permit(:Title, :Text)
+    params.require(:new_post).permit(:title, :text)
   end
 end

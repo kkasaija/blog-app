@@ -6,7 +6,7 @@ class LikesController < ApplicationController
 
     return if @like.save
 
-    @post.increment!(:LikesCounter)
+    @post.increment!(:likes_counter)
     redirect_to user_post_path(@user, @post)
   end
 end

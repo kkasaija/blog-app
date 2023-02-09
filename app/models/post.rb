@@ -3,15 +3,14 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  validates :Title, presence: true, length: { maximum: 250 }
+  validates :title, presence: true, length: { maximum: 250 }
   after_initialize :set_defaults
-
-  validates :CommentsCounter, numericality: {
+  validates :comments_counter, numericality: {
     greater_than_or_equal_to: 0,
     only_integer: true
   }
 
-  validates :LikesCounter, numericality: {
+  validates :likes_counter, numericality: {
     greater_than_or_equal_to: 0,
     only_integer: true
   }
@@ -19,7 +18,7 @@ class Post < ApplicationRecord
   after_save :update_post_counter
 
   def update_post_counter
-    user.increment!(:PostsCounter)
+    user.increment!(:posts_counter)
   end
 
   def recent_comments
@@ -27,7 +26,7 @@ class Post < ApplicationRecord
   end
 
   def set_defaults
-    self.LikesCounter ||= 0 if has_attribute? :LikesCounter
-    self.CommentsCounter ||= 0 if has_attribute? :CommentsCounter
+    self.likes_counter ||= 0 if has_attribute? :likes_counter
+    self.comments_counter ||= 0 if has_attribute? :comments_counter
   end
 end

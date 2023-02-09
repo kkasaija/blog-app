@@ -1,27 +1,26 @@
 <div class="container">
   <div>
     <div class="user_profile">
-      <img src="<%= @user.Photo %>" alt="<%= @user.Name %>'s image" />
+      <img src="<%= @user.photo %>" alt="<%= @user.name %>'s image" />
     </div>
     <div class="user_details">
-      <h3><%= @user.Name %></h3>
-      <p>Number of posts: <%= @user.PostsCounter %> </p>
+      <h3><%= @user.name %></h3>
+      <p>Number of posts: <%= @user.posts_counter %> </p>
     </div>
   </div>
 
-  <% @posts.each do |post| %>
+  <% @user.recent_posts.each do |post| %>
     <div class="posts_container">
       <div class="users_post">
         <h2>
-          <%=
-            link_to "Post title: #{post.Title}",
+          <%= "Post title:"%><%= link_to "#{post.title}",
             user_post_path(@user.id, post.id),
             class: "link_button"
           %>
         </h2>
-        <p><%= post.Text %></p>
+        <p><%= post.text %></p>
         <h4>
-          Comments:<%=post.CommentsCounter %>, Likes: <%= post.LikesCounter%>
+          Comments:<%=post.comments_counter %>, Likes: <%= post.likes_counter%>
         </h4>
         <%= form_with url: "/users/#{@user.id}/posts/#{post.id}/likes" do |form| %>
           <%= form.submit "Like Post" %>
@@ -31,8 +30,8 @@
         <% if post.recent_comments.count.zero? %>
           <p>No comments for this post </p>
           <% else %>
-            <% post.recent_comments.each do |comment| %>
-            <p><%= comment.user.Name %>: <%= comment.Text %></p>
+            <% post.comments.last(5).each do |comment| %>
+            <p><%= comment.user.name %>: <%= comment.text %></p>
           <% end %>
         <% end %>
       </div>

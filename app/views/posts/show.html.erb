@@ -1,21 +1,21 @@
 <section>
   <div class='posts'>
     <div class="post_headline">
-      <h5>Post # <%= @post.id %> by <%= @post.user.Name %></h5>
+      <h5>Post # <%= @post.id %> by <%= @post.user.name %></h5>
       <span class='comment_like'>
-        Comments: <%= @post.CommentsCounter %>, 
-        Likes: <%= @post.LikesCounter %>
+        Comments: <%= @post.comments_counter %>, 
+        Likes: <%= @post.likes_counter %>
       </span>
     </div>
-    <p><%= @post.Text %></p>
+    <p><%= @post.text %></p>
   </div>
 
   <ul class='post_comment'>
-    <% if @post.CommentsCounter == 0 %>
+    <% if @post.comments_counter == 0 %>
       <p>No comment added</p>
     <% else %>
-      <% @post.recent_comments.each do |comment| %>
-          <li><%=comment.user.Name %>: <%= comment.Text%></li>
+      <% @post.comments.last(5).each do |comment| %>
+          <li><%=comment.user.name %>: <%= comment.text%></li>
         <% end %>
     <% end %>
   </ul>
