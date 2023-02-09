@@ -14,42 +14,45 @@ RSpec.describe 'User index page', type: :feature do
       Post.create(user: @user, title: 'My third post', text: 'This is my third post')
       @last_post = Post.create(user: @user, title: 'My fourth post', text: 'This is my fourth post')
 
-      visit user_path(@user.id)
+      visit user_path(@user)
     end
 
     it 'should show the user profile picture' do
-      expect(page).to have_content(@user.photo)
+      expect(page).to have_text("#{@user.name}' image")
     end
 
     it 'should show the user username' do
-      expect(page.body).to have_content(@user.name)
+      expect(page).to have_content(@user.name)
     end
 
     it 'should show the number of post the user has writen' do
-      expect(page.body).to have_content(@user.posts_counter.to_s)
+      expect(page.body).to have_content("Number of posts: #{@user.posts_counter}")
     end
 
     it 'should sho wthe the users bio' do
-      expect(page.body).to have_content(@user.bio)
+      expect(page).to have_content(@user.bio)
     end
 
     it "should show the user's first 3 posts" do
-      expect(page.body).to have_content('This is my second post')
-      expect(page.body).to have_content('This is my third post')
-      expect(page.body).to have_content('This is my fourth post')
+      expect(page).to have_content('This is my first post')
+      expect(page).to have_content('This is my second post')
+      expect(page).to have_content('This is my third post')
     end
 
-    it "should show a button that lets me view all of a user's posts" do
-      expect(page.body).to have_content('Show all posts')
-    end
-
-    it "When user click on a user's post, it should redirects to that post's show page" do
-      click_link(@last_post.text)
+    it "When user clicks on a user's post, it should redirects to that post's show page" do
+      visit user_posts_path(@user)
+      click_link(@last_post.title)
       expect(page).to have_current_path(user_post_path(@user, @last_post))
     end
 
+    it "should show a button that lets me view all of a user's posts" do
+      visit user_path(User.last)
+      expect(page).to have_text('See all posts')
+    end
+
     it "When I click to Show all posts, it should redirects me to the user's post's index page" do
-      click_link('Show all posts')
+      visit user_path(User.last)
+      click_link('See all posts')
       expect(page).to have_current_path(user_posts_path(@user))
     end
   end
