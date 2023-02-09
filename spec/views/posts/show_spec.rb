@@ -20,7 +20,7 @@ RSpec.describe 'Posts', type: :feature do
   end
 
   let(:comment) do
-    Comment.create(author_id: user.id, post_id: post.id, text: "Tom's first comment")
+    Comment.create(author_id: user.id, post_id: post.id, text: "Tom's second comment")
   end
 
   feature 'show page' do

@@ -17,7 +17,7 @@ RSpec.describe 'Posts', type: :feature do
   end
 
   let(:comment) do
-    Comment.create(author_id: user.id, post_id: post.id, text: "Tom's first comment")
+    Comment.create(author_id: user.id, post_id: post.id, text: "Tom's second comment")
   end
 
   feature 'index page' do
@@ -35,19 +35,29 @@ RSpec.describe 'Posts', type: :feature do
     end
     scenario 'displays the post title' do
       visit user_posts_path(user)
-      expect(page).to have_content('Number of posts')
+      expect(page).to have_content('One')
     end
     scenario 'displays the post text' do
       visit user_posts_path(user)
-      expect(page).to have_content('Number of posts')
+      expect(page).to have_content('This is my first post')
     end
-    scenario 'displays the post text' do
+    scenario 'displays the first comments on a post' do
       visit user_posts_path(user)
-      expect(page).to have_content('Number of posts')
+      expect(page).to have_content("Tom's second comment")
     end
-    scenario 'displays the number of comments' do
+
+    it 'displays the number of likes' do
       visit user_posts_path(user)
       expect(page).to have_content('0')
+    end
+    it 'displays the number of comments' do
+      visit user_posts_path(user)
+      expect(page).to have_content('1')
+    end
+    it 'redirect to the post show page when clicking on the post title' do
+      visit user_posts_path(user)
+      click_link(post.title)
+      expect(page).to have_current_path(user_post_path(user, post))
     end
   end
 end
