@@ -135,7 +135,7 @@ You can deploy this project using:
   - Twitter: [@kenn_ug](https://twitter.com/kenn_ug)
   - Email:  <a href="mailto:kasaijak@gmail.com?subject=The%20subject%20of%20the%20mail">Send me a message:</a>
 
-  👤 **Kasaija Kenneth**
+  👤 **Recillah-Khamala**
 
   - GitHub: [@Recillah-Khamala](https://github.com/Recillah-Khamala)
   - Twitter: [@recillahk](https://twitter.com/recillahk)
