@@ -4,11 +4,10 @@ RSpec.describe 'User index page', type: :feature do
   describe 'User show page process' do
     before(:each) do
       @user = User.create(name: 'Kisembo',
-        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-        bio: 'Mexican teacher',
-        posts_counter: 4
-      )
-  
+                          photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+                          bio: 'Mexican teacher',
+                          posts_counter: 4)
+
       Post.create(user: @user, title: 'My first post', text: 'This is my first post')
       Post.create(user: @user, title: 'My second post', text: 'This is my second post')
       Post.create(user: @user, title: 'My third post', text: 'This is my third post')
