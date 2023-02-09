@@ -3,15 +3,13 @@ require 'rails_helper'
 RSpec.describe 'Users', type: :system do
   before(:all) do
     @user1 = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'Teacher from Mexico.', posts_counter: 0
-    )
+                         bio: 'Teacher from Mexico.', posts_counter: 0)
 
     @user2 = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'Teacher from Poland.'
-    )
+                         bio: 'Teacher from Poland.')
 
     @post = Post.create(user: @user1, title: 'One', text: 'This is my first post')
-    Comment.create(author_id: @user1.id, post_id: @post.id,text: "Tom's second comment")
+    Comment.create(author_id: @user1.id, post_id: @post.id, text: "Tom's second comment")
   end
 
   describe 'show page' do
