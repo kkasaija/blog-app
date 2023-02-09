@@ -2,39 +2,16 @@ require 'rails_helper'
 
 RSpec.describe 'Users', type: :system do
   before(:all) do
-    @user1 = User.create(
-      name: 'Lilly',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-      bio: 'I am a front end developer.', posts_counter: 0
+    @user1 = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'Teacher from Poland.'
     )
 
-    @user2 = User.create(
-      name: 'Tom',
-      photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+    @user2 = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
       bio: 'Teacher from Mexico.', posts_counter: 0
     )
 
-    @post = Post.create(
-      user: @user1,
-      title: 'Post 1 by Lilly',
-      text: 'This is the third post test by Lilly',
-      likes_counter: 0,
-      comments_counter: 0
-    )
-
-    Post.create(
-      user: @user2,
-      title: 'Post 2 by Lilly',
-      text: 'This is the fourth post test by Lilly',
-      likes_counter: 0,
-      comments_counter: 0
-    )
-
-    Comment.create(
-      author_id: @user1.id,
-      post_id: @post.id,
-      text: 'my comment'
-    )
+    @post = Post.create(user: @user1, title: 'Hello', text: 'This is my first post')
+    Comment.create(author_id: @user1.id, post_id: @post.id,text: 'my comment')
   end
 
   describe 'show page' do

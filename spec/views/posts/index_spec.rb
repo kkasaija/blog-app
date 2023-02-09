@@ -2,23 +2,22 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :feature do
   let(:user) do
-    User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico.',
-                posts_counter: 0)
+    User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'Teacher from Mexico.', posts_counter: 0)
   end
 
   let(:post) do
-    Post.create(author_id: user.id, title: 'One',
-                text: 'This is my first post',
-                likes_counter: 0, comments_counter: 0)
+    Post.create(user:, title: 'One', text: 'This is my first post',
+      likes_counter: 0, comments_counter: 0)
   end
 
   let(:commenter) do
-    User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Poland.',
-                posts_counter: 0)
+    User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+      bio: 'Teacher from Mexico.', posts_counter: 0)
   end
 
   let(:comment) do
-    Comment.create(author_id: user.id, post_id: post.id, text: 'tried')
+    Comment.create(author_id: user.id, post_id: post.id, text: "Tom's first comment")
   end
 
   feature 'index page' do
