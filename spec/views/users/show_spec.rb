@@ -18,7 +18,7 @@ RSpec.describe 'User index page', type: :feature do
     end
 
     it 'should show the user profile picture' do
-      expect(page).to have_text("#{@user.name}' image")
+      expect(page).to have_css("img[src='#{@user.photo}']")
     end
 
     it 'should show the user username' do
@@ -26,7 +26,7 @@ RSpec.describe 'User index page', type: :feature do
     end
 
     it 'should show the number of post the user has writen' do
-      expect(page.body).to have_content("Number of posts: #{@user.posts_counter}")
+      expect(page).to have_text('Number of posts: 4')
     end
 
     it 'should sho wthe the users bio' do
