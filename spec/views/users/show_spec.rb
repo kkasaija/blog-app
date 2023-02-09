@@ -1,62 +1,56 @@
 require 'rails_helper'
 
-RSpec.describe 'Users', type: :system do
-  before(:all) do
-    @user1 = User.create(name: 'Tom', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                         bio: 'Teacher from Mexico.', posts_counter: 0)
+RSpec.describe 'User index page', type: :feature do
+  describe 'User show page process' do
+    before(:each) do
+      @user = User.create(name: 'Kisembo',
+        photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
+        bio: 'Mexican teacher',
+        posts_counter: 4
+      )
+  
+      Post.create(user: @user, title: 'My first post', text: 'This is my first post')
+      Post.create(user: @user, title: 'My second post', text: 'This is my second post')
+      Post.create(user: @user, title: 'My third post', text: 'This is my third post')
+      @last_post = Post.create(user: @user, title: 'My fourth post', text: 'This is my fourth post')
 
-    @user2 = User.create(name: 'Lilly', photo: 'https://unsplash.com/photos/F_-0BxGuVvo',
-                         bio: 'Teacher from Poland.')
-
-    @post = Post.create(user: @user1, title: 'One', text: 'This is my first post')
-    Comment.create(author_id: @user1.id, post_id: @post.id, text: "Tom's second comment")
-  end
-
-  describe 'show page' do
-    it 'should render the profile picture of the user' do
-      visit user_path(@user1)
-      image = page.find('img')
-      expect(image['src']).to have_content('https://unsplash.com/photos/F_-0BxGuVvo')
+      visit user_path(@user.id)
     end
 
-    it 'should display the name of the user' do
-      visit user_path(@user1)
-      expect(page).to have_content('Tom')
+    it 'should show the user profile picture' do
+      expect(page).to have_content(@user.photo)
     end
 
-    it 'displays number of posts the user has written' do
-      visit user_path(@user1)
-      expect(page).to have_content("Number of posts: #{@user1.posts_counter}")
+    it 'should show the user username' do
+      expect(page.body).to have_content(@user.name)
     end
 
-    it 'displays the correct posts' do
-      visit user_path(@user1)
-      expect(page).to have_content('This is my first post')
+    it 'should show the number of post the user has writen' do
+      expect(page.body).to have_content(@user.posts_counter.to_s)
     end
 
-    it 'displays the bio' do
-      visit user_path(@user1)
-      expect(page).to have_content('Teacher from Mexico.')
+    it 'should sho wthe the users bio' do
+      expect(page.body).to have_content(@user.bio)
     end
 
-    it 'displays button to see all posts' do
-      visit user_path(@user1)
-      expect(page).to have_link('See all posts')
+    it "should show the user's first 3 posts" do
+      expect(page.body).to have_content('This is my second post')
+      expect(page.body).to have_content('This is my third post')
+      expect(page.body).to have_content('This is my fourth post')
     end
 
-    it 'redirects to the posts index page when the button is clicked' do
-      visit user_path(@user1)
-      click_link('See all posts')
-      expect(page).to have_current_path(user_posts_path(@user1))
+    it "should show a button that lets me view all of a user's posts" do
+      expect(page.body).to have_content('Show all posts')
     end
 
-    it 'displays the correct number of comments' do
-      visit user_path(@user1)
-      expect(page).to have_content('Comments')
+    it "When user click on a user's post, it should redirects to that post's show page" do
+      click_link(@last_post.text)
+      expect(page).to have_current_path(user_post_path(@user, @last_post))
     end
-    it 'displays the correct number of likes' do
-      visit user_path(@user1)
-      expect(page).to have_content('Likes: 0')
+
+    it "When I click to Show all posts, it should redirects me to the user's post's index page" do
+      click_link('Show all posts')
+      expect(page).to have_current_path(user_posts_path(@user))
     end
   end
 end
