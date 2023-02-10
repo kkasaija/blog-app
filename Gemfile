@@ -54,6 +54,7 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 6.0.0'
+  gem 'mailcatcher'
 end
 
 group :development do
@@ -77,3 +78,7 @@ end
 gem 'bullet'
 gem 'rails-controller-testing'
 gem 'devise'
+
+gem 'actionview-encoded_mail_to'
+gem 'sidekiq'
+gem 'redis-rails'
