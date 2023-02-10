@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :email_confirmation
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
