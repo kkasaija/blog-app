@@ -64,6 +64,7 @@ ERDiagram:
 - **Ability to add posts from the browser**
 - **Add likes to posts functionality**
 - **Rspec tests**
+- **Signup users**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
