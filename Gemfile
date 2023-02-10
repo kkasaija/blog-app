@@ -76,3 +76,4 @@ group :test do
 end
 gem 'bullet'
 gem 'rails-controller-testing'
+gem 'devise'
