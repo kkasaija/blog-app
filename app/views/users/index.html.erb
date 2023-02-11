@@ -1,18 +1,20 @@
-<section>
-  <ul class="list-group">
-    <% @users.each do |user| %>
-      <li class="list-group-item d-flex">
-        <div class="d-flex img-thumbnail align-items-center">
-          <img src=<%=user.photo%> alt="<%=user.name%>'s image" />
-        </div>
-        <div class="d-flex justify-content-between ms-2 flex-grow-1 align-items-center">
-          <h4 class="fs-5 fw-light display-6">
-            <%= link_to user.name, user_path(user),
-            class: "text-decoration-none" %>
-          </h4>
-          <p>Number of posts: <%= user.posts_counter %></p>
-        </div>
-      </li>
-    <% end %>
-  </ul>
-</section>
+<% if user_signed_in? %>
+  <section>
+    <ul class="list-group">
+      <% @users.each do |user| %>
+        <li class="list-group-item d-flex">
+          <div class="d-flex img-thumbnail align-items-center">
+            <img src=<%=user.photo%> alt="<%=user.name%>'s image" />
+          </div>
+          <div class="d-flex justify-content-between ms-2 flex-grow-1 align-items-center">
+            <h4 class="fs-5 fw-light display-6">
+              <%= link_to user.name, user_path(user),
+              class: "text-decoration-none" %>
+            </h4>
+            <p>Number of posts: <%= user.posts_counter %></p>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+<%end%>

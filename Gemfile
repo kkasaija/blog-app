@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'rubocop', '>= 1.0', '< 2.0'
+
 ruby '3.1.3'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -37,7 +39,7 @@ gem 'jbuilder'
 # gem "bcrypt", "~> 3.1.7"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data', '~> 1.2022', '>= 1.2022.7', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
@@ -47,19 +49,26 @@ gem 'bootsnap', require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-gem 'rubocop', '>= 1.0', '< 2.0'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
-  gem 'mailcatcher'
-  gem 'rspec-rails', '~> 6.0.0'
+  gem 'faker'
+  gem 'rspec-rails'
+  gem 'xmpp4r'
 end
+gem 'rails-controller-testing'
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
+
+  gem 'bullet'
+
+  # letter opener
+  gem 'letter_opener'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -71,14 +80,9 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
-  gem 'database_cleaner'
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-gem 'bullet'
-gem 'devise'
-gem 'rails-controller-testing'
 
-gem 'actionview-encoded_mail_to'
-gem 'redis-rails'
-gem 'sidekiq'
+# add devise
+gem 'devise'

@@ -14,8 +14,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_parameters)
     if @post.save
+      flash[:success] = 'post added successfully'
       redirect_to user_posts_path(current_user)
     else
+      flash[:success] = 'post was not added'
       render :new
     end
   end
